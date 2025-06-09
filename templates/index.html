@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laufzeiten Rechner</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <h1>Laufzeiten Rechner</h1>
+
+  <div class="box">
+    <div class="input-group">
+      <label for="pace">Pace (min:ss / km):</label>
+      <input type="text" id="pace" placeholder="z. B. 4:30" />
+    </div>
+    <div class="input-group">
+      <label for="speed">Geschwindigkeit (km/h):</label>
+      <input type="number" id="speed" placeholder="z. B. 13.33" />
+    </div>
+    <button onclick="convert()">Umrechnen</button>
+  </div>
+
+  <div class="box">
+    <div class="input-group">
+      <label for="distance">Benutzerdefinierte Strecke (km):</label>
+      <input type="number" id="distance" placeholder="z. B. 7.5" />
+    </div>
+    <button onclick="calculateCustomDistance()">Berechne Zeit für benutzerdefinierte Strecke</button>
+    <div id="customResult"></div>
+  </div>
+
+  <div class="box">
+    <button onclick="calculateStandardDistances()">Berechne Zeiten für Standardstrecken</button>
+    <div id="standardResults"></div>
+  </div>
+
+  <div class="box">
+    <label for="runnerSelect">Vergleiche Dich jetzt mit den bekanntesten Langstreckenläufer*innen!:</label>
+    <select id="runnerSelect" onchange="selectRunner()">
+      <option value="">-- Bitte auswählen --</option>
+      <option value="Eliud Kipchoge">Eliud Kipchoge</option>
+      <option value="Paula Radcliffe">Paula Radcliffe</option>
+      <option value="Kenenisa Bekele">Kenenisa Bekele</option>
+      <option value="Haile Gebrselassie">Haile Gebrselassie</option>
+      <option value="Abebe Bikila">Abebe Bikila</option>
+      <option value="Konstanze Klosterhalfen">Konstanze Klosterhalfen</option>
+    </select>
+  </div>
+
+  <!-- Neue Box für Vergleichsergebnisse -->
+  <div class="box" id="runnerResultBox" style="display: none;">
+    <h2>Vergleich mit Läufer*in</h2>
+    <div id="runnerResult"></div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
